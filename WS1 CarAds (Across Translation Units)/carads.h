@@ -36,8 +36,8 @@ namespace sdds {
 		Cars& operator=(const Cars& myCar);
 		~Cars();
 		void read(std::istream& is);
-		void display(bool reset);
-		char getStatus();
+		void display(bool reset) const;
+		char getStatus() const;
 		operator bool() const;
 	};
 

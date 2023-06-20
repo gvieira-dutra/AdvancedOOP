@@ -37,21 +37,9 @@ namespace sdds {
 		}
 	}
 
-	Cars::Cars(const Cars& right) {
+	Cars::Cars(const Cars& src) {
 		
-		if (right.brand != nullptr )
-		{
-			brand = new char[strlen(right.brand) + 1];
-			strcpy(brand, right.brand);
-
-			strcpy(model, right.model);
-			year = right.year;
-			 price = right.price;
-			status = right.status;
-			isPromotion = right.isPromotion;
-		}
-		else
-			brand = nullptr;
+		*this = src;
 	}
 
 	Cars& Cars::operator=(const Cars& myCar)
@@ -144,7 +132,7 @@ namespace sdds {
 		}
 	}
 
-	void Cars::display(bool reset)
+	void Cars::display(bool reset) const
 	{
 		static int COUNTER = 0;
 		if (reset == true)
@@ -171,7 +159,7 @@ namespace sdds {
 			cout << "COUNTER. No Car";
 	}
 
-	char Cars::getStatus() 
+	char Cars::getStatus() const
 	{
 
 		return status;
@@ -179,7 +167,7 @@ namespace sdds {
 
 	Cars::operator bool() const {
 
-		return (year >= 2021 ? true : false);
+		return (status == 'N' ? true : false);
 	}
 
 	istream& operator>>(istream& is, Cars& car)
