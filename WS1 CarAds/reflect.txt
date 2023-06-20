@@ -1,0 +1,30 @@
+/******************************************************/
+/* Gleison Vieira Dutra                               */
+/* gvieira-dutra@myseneca.ca                          */
+/* 119237220                                          */
+/* Completed by 05/20/2023                            */
+/* I have done all the coding by myself and only      */  
+/* copied the code that my professor provided to      */    
+/* complete my workshops and assignments.             */
+/******************************************************/
+
+
+The most important topic I learned while completing this workshop was external linkage by using the extern keyword, the use of the static variable and passing arguments to the main function.
+
+On the external linkage part, I learned how to declare variables that can be used simultaneously by different translation units, meaning that when I declarad g_taxrate and g_discount on my header file, whichever other file that contained that header file would have access to those variables. The main difficulty I had while completing this part was that when I went to define the variables on my carads.cpp file I firt attempted to do it inside the namespace sdds, this gave a a linker error LNK2001. I believe (and this is a question I want to ask you) that this happened because main was not inside the namespace. I solved the problem by putting the declaration and the definition of these variables outside sdds.
+
+I had used static keyword before, but it was on one of those situations where you follow instructions of a random comment on stackoverflow without properly undertanding what it does. I found the concept quite interesting and while was using it I was thinking if other ways to accomplish the same and could not think of a solution that is this simple. I did not have any issues with this part of the program and my static counter worked fine. 
+
+Passing arguments to the main function was also a new topic to me and even though it should be intuitive that main could recieve arguments because it is a function I had never considered that. The most interesting part to me about it is that it can not only receive one, but multiple files in form on just one argument and use them all with the logic of the program. I had a little difficulty with executing the program from the terminal, so instead of executing it from the terminal I added the arguments on the properties of the project like you showed us in class and that allowed me to execute the program and troubleshoot it.
+
+constexpr (short for constant expresison) is a keyword that signals to the compiler that it's value can when possible be evaluated at compile time. constexpr also prevents any modification in a variable. 
+
+External linkage makes the variable available throughout multiple translation units, while internal linkage makes it available only in the unit where it was declared. From my code I can cite the example of the function display where it has the COUNTER variable declared as 'static int COUNTER = 0;' this is an example of internal linkage. The static keyword is signaling that this variable should not be available on other units. Also, once created, the internally linked variable will exist for the entire lifetime of the program. External linkage is the linking of variables across multiple translation units, it is accomplished by the use of the keyword extern which usually declares the variable in a header file and all implementation files that include those header files will have access to that save variable, even if its value was changed by a different fuction or a different module. My code I declared in the .h file the externally linked variables extern double g_taxrate; extern double g_discount;, then, defined it's initial values on the .cpp file as double g_taxrate = 0; double g_discount = 0;
+
+
+Static variables are variables that exist throughout the execution of the program. They are useful in cases where a function will be called again, but needs to remember how many times it was called already, so it was used in my solution like an advanced counter. Perhaps if I did not had this varible, I would have to print all cars at once to make sure that the counting was accurate, or print the counting in the caller function and the car info in the display function, anyways, the static variable made the counting process simpler for my program. 
+
+
+In part 2 I changed this line of: code char brand[10] {}; to this char* brand {}; So instead of using an array of characters, I used a pointer. A pointer allows me to make more efficient memore usage as I only need to allocate memory to the exact amount of chars that the brand has and it also allows me to store brand names of any lenght. To reflect this change on my code I had to implement memory allocation when collecting the name of the brand, when copying names so it made my code a bit more complex but with better memory management. 
+
+The rule of 3 is that if I have any of these, a copy constructor, a copy assignment operator overload or a destructor, I should define the three of them. This functions are needed to ensure a proper resource management of our data. Considering that we need one of those, the other 2 may not be in our implementation code but the client might want that functionality afterwords and the compiler cannot do any of those functions so it is the programmer's task to implement them all. This way we avoid memory leaks and can do our deep copy properly.
