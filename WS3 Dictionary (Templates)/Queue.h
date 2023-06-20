@@ -96,8 +96,6 @@ namespace sdds {
 		};
 	};
 
-	//Initializes our static variable 'currentSize' to empty every time a new instance type of the class is created
-
 	//Initializes our static empty object to its appropriate type every time a new instance type of the class is created
 	template<typename T, int num>
 	T Queue<T, num>::emptyObj{};
