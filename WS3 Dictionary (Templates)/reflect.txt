@@ -2,7 +2,7 @@
 
 2- operator== --it was necessary to add this method to ensure that the comparison was being done appropriately for the members of the Dictionary data type.
 
-display --it was necessary to add this member to ensure that the formatting was done accordingly to specifications, also, in the Dictionary data type, we had an array of a class that each member had 2 items to be printed, term and definition, whereas the other data types only had one. so again to print them according to how they are structured I'd need a specific function.
+3- display --it was necessary to add this member to ensure that the formatting was done accordingly to specifications, also, in the Dictionary data type, we had an array of a class that each member had 2 items to be printed, term and definition, whereas the other data types only had one. so again to print them according to how they are structured I'd need a specific function.
 
 Our first push() method on the UniqueQueue was checking for equality in a very precise way, that is, if 455 was equal to 455, or if dome was equal to dome, then these items were considered repeated. Because of how many decimals doubles can have we must determine the degree of accuracy that we need from our code to check, and we specialized the push() method to define this accuracy to .005
 
